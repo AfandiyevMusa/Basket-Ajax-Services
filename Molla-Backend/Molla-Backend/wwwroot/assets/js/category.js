@@ -2,11 +2,9 @@
     $(".nameofcard").click(function () {
         var innerText = $(this).text();
         console.log(innerText);
-        var data = { searchText: innerText };
         $.ajax({
+            url: `shop/GetText?searchText=${innerText}`,
             type: 'Get',
-            url: shop/gettext',
-            data: data,
             success: function (result) {
                 console.log("Lannn");
             }

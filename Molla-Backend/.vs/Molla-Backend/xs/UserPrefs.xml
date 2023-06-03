@@ -1,17 +1,13 @@
 ﻿<Properties StartupConfiguration="{C54089D6-4EE6-4FCF-845D-23EEE5B19128}|Default">
+  <MonoDevelop.Ide.ItemProperties.Molla-Backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/Views/Shop/Index.cshtml" relfile="Molla-Backend/Views/Shop/Index.cshtml" line="316" column="1" />
-      <Breakpoint file="/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/Controllers/ShopController.cs" relfile="Molla-Backend/Controllers/ShopController.cs" line="30" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="Molla-Backend/Controllers/ShopController.cs">
     <Files>
-      <File FileName="Molla-Backend/wwwroot/assets/js/category.js" Line="8" Column="18" />
-      <File FileName="Molla-Backend/Views/Shop/Index.cshtml" Line="318" Column="53" />
-      <File FileName="Molla-Backend/Controllers/ShopController.cs" Line="37" Column="1" />
+      <File FileName="Molla-Backend/wwwroot/assets/js/category.js" Line="8" Column="25" />
+      <File FileName="Molla-Backend/Views/Shop/Index.cshtml" Line="87" Column="79" />
+      <File FileName="Molla-Backend/Controllers/ShopController.cs" Line="36" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,8 +17,11 @@
               <Node name="Controllers" expanded="True">
                 <Node name="ShopController.cs" selected="True" />
               </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
                 <Node name="Shop" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
@@ -30,12 +29,14 @@
                   <Node name="js" expanded="True" />
                 </Node>
               </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Molla-Backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<Product>
 @{
     ViewData["Title"] = "Shop Page";
-    string searchT = ViewBag.SearchText;
+    string searchT = null;
+
+    if (TempData["categoryName"] != null)
+    {
+        searchT = TempData["categoryName"].ToString();
+    }
 }
 
 @section CSS{
@@ -261,248 +266,107 @@
                             </div>
                         </div>
                     </div>
-                    @if (searchT is null)
-                    {
-                        @foreach (var eachFeatured in Model)
-                        {
-                            <div class="each-cards">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 col-md-3 col-lg-3">
-                                            <div class="left">
-                                                <img src="~/assets/imgs/Home/@eachFeatured.Images.Where(m=>m.IsMain).FirstOrDefault().Image" alt="">
-                                            </div>
+                    <partial name="_ProductsPartial" model="@Model" />
+                    @*@if (searchT is null)
+        {
+            @foreach (var eachFeatured in Model)
+            {
+                <div class="each-cards">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-3 col-lg-3">
+                                <div class="left">
+                                    <img src="~/assets/imgs/Home/@eachFeatured.Images.Where(m=>m.IsMain).FirstOrDefault().Image" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 order-last">
+                                <div class="middle">
+                                    <span>@eachFeatured.Features</span>
+                                    <h6>@eachFeatured.Name</h6>
+                                    <p>
+                                        @eachFeatured.Features
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 order-md-last order-lg-last">
+                                <div class="right">
+                                    <span>$55.00</span>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        <p class="reviews">( @eachFeatured.SalesCount Reviews )</p>
+                                    </div>
+                                    <div class="icons">
+                                        <div class="left-icon">
+                                            <i class="fa-solid fa-binoculars"></i>
+                                            <span>quick view</span>
                                         </div>
-                                        <div class="col-md-6 order-last">
-                                            <div class="middle">
-                                                <span>@eachFeatured.Features</span>
-                                                <h6>@eachFeatured.Name</h6>
-                                                <p>
-                                                    @eachFeatured.Features
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-6 order-md-last order-lg-last">
-                                            <div class="right">
-                                                <span>$55.00</span>
-                                                <div class="stars">
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                                    <p class="reviews">( @eachFeatured.SalesCount Reviews )</p>
-                                                </div>
-                                                <div class="icons">
-                                                    <div class="left-icon">
-                                                        <i class="fa-solid fa-binoculars"></i>
-                                                        <span>quick view</span>
-                                                    </div>
-                                                    <div class="right-icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                        <span>wishlist</span>
-                                                    </div>
-                                                </div>
-                                                <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
-                                            </div>
+                                        <div class="right-icon">
+                                            <i class="fa-regular fa-heart"></i>
+                                            <span>wishlist</span>
                                         </div>
                                     </div>
+                                    <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
                                 </div>
                             </div>
-                        }
-                    }
-                    else
-                    {
-                        @foreach (var eachFeatured in Model.Where(m => m.Features.Contains(searchT)))
-                        {
-                            <div class="each-cards">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 col-md-3 col-lg-3">
-                                            <div class="left">
-                                                <img src="~/assets/imgs/Home/@eachFeatured.Images.Where(m=>m.IsMain).FirstOrDefault().Image" alt="">
-                                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            @foreach (var eachFeatured in Model.Where(m => m.Features.Contains(searchT)))
+            {
+                <div class="each-cards">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-3 col-lg-3">
+                                <div class="left">
+                                    <img src="~/assets/imgs/Home/@eachFeatured.Images.Where(m=>m.IsMain).FirstOrDefault().Image" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 order-last">
+                                <div class="middle">
+                                    <span>@eachFeatured.Features</span>
+                                    <h6>@eachFeatured.Name</h6>
+                                    <p>
+                                        @eachFeatured.Features
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 order-md-last order-lg-last">
+                                <div class="right">
+                                    <span>$55.00</span>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        <p class="reviews">( @eachFeatured.SalesCount Reviews )</p>
+                                    </div>
+                                    <div class="icons">
+                                        <div class="left-icon">
+                                            <i class="fa-solid fa-binoculars"></i>
+                                            <span>quick view</span>
                                         </div>
-                                        <div class="col-md-6 order-last">
-                                            <div class="middle">
-                                                <span>@eachFeatured.Features</span>
-                                                <h6>@eachFeatured.Name</h6>
-                                                <p>
-                                                    @eachFeatured.Features
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-6 order-md-last order-lg-last">
-                                            <div class="right">
-                                                <span>$55.00</span>
-                                                <div class="stars">
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                                    <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                                    <p class="reviews">( @eachFeatured.SalesCount Reviews )</p>
-                                                </div>
-                                                <div class="icons">
-                                                    <div class="left-icon">
-                                                        <i class="fa-solid fa-binoculars"></i>
-                                                        <span>quick view</span>
-                                                    </div>
-                                                    <div class="right-icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                        <span>wishlist</span>
-                                                    </div>
-                                                </div>
-                                                <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
-                                            </div>
+                                        <div class="right-icon">
+                                            <i class="fa-regular fa-heart"></i>
+                                            <span>wishlist</span>
                                         </div>
                                     </div>
+                                    <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
                                 </div>
                             </div>
-                        }
-                    }
-                    @*<div class="each-cards">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-md-3 col-lg-3">
-                        <div class="left">
-                            <img src="~/assets/imgs/Shop/shop3.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-last">
-                        <div class="middle">
-                            <span>Women</span>
-                            <h6>Beige V neck button cardigan</h6>
-                            <p>
-                                Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae
-                                luctus metus libero eu augue. Morbi purus libero, faucibus
-                                adipiscing.
-                                Sed lectus.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6 order-md-last order-lg-last">
-                        <div class="right">
-                            <span>$72.00</span>
-                            <div class="stars">
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <p class="reviews">( 2 Reviews )</p>
-                            </div>
-                            <div class="icons">
-                                <div class="left-icon">
-                                    <i class="fa-solid fa-binoculars"></i>
-                                    <span>quick view</span>
-                                </div>
-                                <div class="right-icon">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <span>wishlist</span>
-                                </div>
-                            </div>
-                            <button><i class="fa-solid fa-cart-plus"></i></i>Add to cart</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="each-cards">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-md-3 col-lg-3">
-                        <div class="left">
-                            <img src="~/assets/imgs/Shop/shop4.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-last">
-                        <div class="middle">
-                            <span>Women</span>
-                            <h6>Black denim dungaree dress</h6>
-                            <p>
-                                Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae
-                                luctus metus libero eu augue. Morbi purus libero, faucibus
-                                adipiscing.
-                                Sed lectus.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6 order-md-last order-lg-last">
-                        <div class="right">
-                            <span>$60.00</span>
-                            <div class="stars">
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <p class="reviews">( 2 Reviews )</p>
-                            </div>
-                            <div class="icons">
-                                <div class="left-icon">
-                                    <i class="fa-solid fa-binoculars"></i>
-                                    <span>quick view</span>
-                                </div>
-                                <div class="right-icon">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <span>wishlist</span>
-                                </div>
-                            </div>
-                            <button><i class="fa-solid fa-cart-plus"></i></i>Add to cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="each-cards">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-md-3 col-lg-3">
-                        <div class="left">
-                            <img src="~/assets/imgs/Shop/shop5.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-last">
-                        <div class="middle">
-                            <span>Boots, Shoes, Women</span>
-                            <h6>Black faux leather chain trim sandals</h6>
-                            <p>
-                                Morbi purus libero, faucibus adipiscing, commodo quis, gravida id,
-                                est.
-                                Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at
-                                felis. Vestibulum volutpat, lacus...
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6 order-md-last order-lg-last">
-                        <div class="right">
-                            <span>$90.00</span>
-                            <div class="stars">
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <i class="fa-solid fa-star" style="color: #cccccc;"></i>
-                                <p class="reviews">( 2 Reviews )</p>
-                            </div>
-                            <div class="icons">
-                                <div class="left-icon">
-                                    <i class="fa-solid fa-binoculars"></i>
-                                    <span>quick view</span>
-                                </div>
-                                <div class="right-icon">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <span>wishlist</span>
-                                </div>
-                            </div>
-                            <button><i class="fa-solid fa-cart-plus"></i></i>Add to cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
+            }
+        }*@
                     <nav aria-label="Page navigation example" class="pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">

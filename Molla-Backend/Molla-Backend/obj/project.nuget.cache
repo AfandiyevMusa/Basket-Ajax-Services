@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FNFJQcAtTKG8EZLaUOekiK2VFFUHCxmZ/Aw3u3O/N0EIgUtGtYOIx0d7RD8cXZFEy16PIUYDndpQSXRl4G5nYg==",
+  "dgSpecHash": "JEiVE9cGefWOsDv9+fACKhM96++nEcdYqBkcW89r9VhfXIcAF1XmiY+BAE395WPIbJfhlFim61Q7ZsuBg3kYaQ==",
   "success": true,
-  "projectFilePath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
+  "projectFilePath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla And Fiorello/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
   "expectedPackageFiles": [
     "/Users/afandiyevmusa/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/afandiyevmusa/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

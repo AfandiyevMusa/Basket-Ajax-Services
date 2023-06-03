@@ -2019,11 +2019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
+      "projectUniqueName": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla And Fiorello/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
       "projectName": "Molla-Backend",
-      "projectPath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
+      "projectPath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla And Fiorello/Molla-Backend/Molla-Backend/Molla-Backend.csproj",
       "packagesPath": "/Users/afandiyevmusa/.nuget/packages/",
-      "outputPath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla-Backend/Molla-Backend/obj/",
+      "outputPath": "/Users/afandiyevmusa/Desktop/P414Code/Backend/ASP.NET/HW/Molla And Fiorello/Molla-Backend/Molla-Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/afandiyevmusa/.nuget/NuGet/NuGet.Config"
